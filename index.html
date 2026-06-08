@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <script>
+        // Inline theme setup to prevent light theme flash on reload
+        (function() {
+            const theme = localStorage.getItem("rahat_theme");
+            if (theme === "dark" || (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+                document.documentElement.classList.add("dark");
+            } else {
+                document.documentElement.classList.remove("dark");
+            }
+        })();
+    </script>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Rahat Unani | Wisdom of the Ages, Purely Formulated</title>
+    <!-- Tailwind CSS with Forms and Container Queries -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Google Fonts: Libre Caslon Text & Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="style.css"/>
+
+    <!-- Tailwind Config Customizations matching DESIGN.md -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "var(--primary)",
+                        "secondary": "var(--secondary)",
+                        "secondary-container": "var(--secondary-container)",
+                        "on-secondary-container": "var(--on-secondary-container)",
+                        "tertiary": "var(--tertiary)",
+                        "background": "var(--background)",
+                        "surface": "var(--surface)",
+                        "surface-variant": "var(--surface-variant)",
+                        "surface-container-low": "var(--surface-container-low)",
+                        "surface-container": "var(--surface-container)",
+                        "on-surface": "var(--on-surface)",
+                        "on-surface-variant": "var(--on-surface-variant)",
+                        "outline": "var(--outline)",
+                        "outline-variant": "var(--outline-variant)"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "margin-mobile": "16px",
+                        "container-max": "1280px",
+                        "margin-desktop": "40px",
+                        "base": "8px",
+                        "gutter": "24px"
+                    },
+                    fontFamily: {
+                        "headline-sm": ["Libre Caslon Text"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "headline-md": ["Libre Caslon Text"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Libre Caslon Text"],
+                        "display-lg": ["Libre Caslon Text"]
+                    },
+                    fontSize: {
+                        "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden transition-colors duration-500">
+
+    <!-- Top Navigation Bar -->
+    <nav class="fixed top-0 w-full z-40 glass-nav">
+        <div class="flex flex-row items-center justify-between px-4 sm:px-6 lg:px-8 py-3 max-w-[1320px] mx-auto flex-nowrap">
+            <!-- Brand Logo -->
+            <a href="#home" class="flex-shrink-0 font-headline-sm text-xl sm:text-2xl font-bold text-primary tracking-tight whitespace-nowrap">Rahat Unani</a>
+            
+            <!-- Desktop Links -->
+            <div class="hidden lg:flex flex-row items-center gap-3 xl:gap-6 flex-shrink-0 flex-nowrap">
+                <a class="nav-link text-primary font-semibold text-xs xl:text-sm whitespace-nowrap transition-colors active" href="#home">Home</a>
+                <a class="nav-link text-on-surface-variant hover:text-primary text-xs xl:text-sm whitespace-nowrap transition-colors" href="#catalogue">Catalogue</a>
+                <a class="nav-link text-on-surface-variant hover:text-primary text-xs xl:text-sm whitespace-nowrap transition-colors" href="#spices-promo">Gourmet Spices</a>
+                <a class="nav-link text-on-surface-variant hover:text-primary text-xs xl:text-sm whitespace-nowrap transition-colors" href="#about">Heritage</a>
+                <a class="nav-link text-on-surface-variant hover:text-primary text-xs xl:text-sm whitespace-nowrap transition-colors" href="#consult">Consultation</a>
+                <a class="nav-link text-on-surface-variant hover:text-primary text-xs xl:text-sm whitespace-nowrap transition-colors" href="#contact">Contact</a>
+            </div>
+
+            <!-- Action Controls -->
+            <div class="flex flex-row items-center gap-1 sm:gap-2 md:gap-2.5 flex-shrink-0 flex-nowrap">
+                <!-- Search Box -->
+                <div class="hidden xl:flex items-center bg-surface-container-low px-3 py-1.5 rounded-full border border-outline-variant/20 focus-within:border-primary/50 transition-colors">
+                    <span class="material-symbols-outlined text-outline mr-1.5 text-lg">search</span>
+                    <input id="search-box" class="bg-transparent border-none focus:ring-0 text-xs w-24 focus:w-36 transition-all text-on-surface" placeholder="Search..." type="text"/>
+                </div>
+
+                <!-- Dark Mode Toggle -->
+                <button id="dark-mode-btn" class="relative text-primary p-2 hover:bg-primary/5 rounded-full transition-colors flex-shrink-0" title="Toggle Dark Mode">
+                    <span class="material-symbols-outlined text-xl" id="dark-mode-icon">dark_mode</span>
+                </button>
+
+                <!-- Track Orders Button (Hidden on Mobile, in Mobile Menu) -->
+                <button id="my-orders-btn" class="hidden sm:inline-flex relative text-primary p-2 hover:bg-primary/5 rounded-full transition-colors flex-shrink-0" title="Track Orders">
+                    <span class="material-symbols-outlined text-xl">local_shipping</span>
+                </button>
+
+                <!-- Cart Toggle Button -->
+                <button id="cart-toggle-btn" class="relative text-primary p-2 hover:bg-primary/5 rounded-full transition-colors flex-shrink-0" title="Shopping Cart">
+                    <span class="material-symbols-outlined text-xl">shopping_cart</span>
+                    <span class="cart-count-badge absolute -top-1 -right-1 bg-teal-600 text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold hidden">0</span>
+                </button>
+
+                <!-- Consult CTA -->
+                <a class="hidden lg:block bg-primary text-white px-3 py-1.5 xl:px-4 xl:py-2 rounded-full font-label-md text-[10px] xl:text-xs font-semibold hover:bg-secondary transition-colors shadow-md whitespace-nowrap" href="#consult">Consult a Hakim</a>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-primary p-2 hover:bg-primary/5 rounded-full transition-colors flex-shrink-0">
+                    <span class="material-symbols-outlined text-xl">menu</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-surface border-t border-outline-variant/20 px-6 py-4 space-y-3 shadow-lg">
+            <a class="block text-primary font-bold py-2 border-b border-outline-variant/10" href="#home">Home</a>
+            <a class="block text-on-surface-variant hover:text-primary py-2 border-b border-outline-variant/10" href="#catalogue">Catalogue</a>
+            <a class="block text-on-surface-variant hover:text-primary py-2 border-b border-outline-variant/10" href="#spices-promo">Gourmet Spices</a>
+            <a class="block text-on-surface-variant hover:text-primary py-2 border-b border-outline-variant/10" href="#about">Heritage</a>
+            <a class="block text-on-surface-variant hover:text-primary py-2 border-b border-outline-variant/10" href="#consult">Consultation</a>
+            <a class="block text-on-surface-variant hover:text-primary py-2 border-b border-outline-variant/10" href="#contact">Contact</a>
+            <!-- Track Orders for Mobile -->
+            <a class="block text-on-surface-variant hover:text-primary py-2 border-b border-outline-variant/10 cursor-pointer" onclick="document.getElementById('my-orders-btn').click(); document.getElementById('mobile-menu').classList.add('hidden')">
+                <span class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-lg">local_shipping</span> Track Orders
+                </span>
+            </a>
+            <a class="block w-full text-center bg-primary text-white py-3 rounded-full font-label-md mt-4 shadow-md" href="#consult">Consult a Hakim</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-20" id="home">
+        <!-- Background Image & Overlay -->
+        <div class="absolute inset-0 z-0 overflow-hidden">
+            <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOP3GrBt7GrZYFMmn5Oo27_i4jt_K7-oGweWUk0kh6x7Dx8xo6wiR_n3ZfCi7u8r-N6x-uBhZaRiLGDPQE9PM3IUDP496CjMmfiQVVcVkVIdoC3jK3hSIIQCBrJGOBXfVhahQJ37_lEu3M-NYmfMyVBUZucYkbPlMWT1QNDjAbLq3EntSlfvNPjaJ0Iup_pwGp0BM7Xv5CvBQfuKQMH9auJbnXvTav_j6P8hEG3n7d-DqZENglCxTy3a6Pq_HqKEJVAh4InyBCoEY" alt="Serene wellness herbs and botanicals"/>
+            <div class="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent"></div>
+        </div>
+
+        <!-- Floating 3D Decorative Orbs -->
+        <div class="floating-orb gold" style="width:300px;height:300px;top:10%;right:15%;animation-delay:0s;"></div>
+        <div class="floating-orb forest" style="width:200px;height:200px;bottom:20%;left:5%;animation-delay:3s;"></div>
+        <div class="floating-orb teal" style="width:160px;height:160px;top:50%;right:40%;animation-delay:6s;"></div>
+
+        <!-- Floating Particles -->
+        <div class="particles-container" id="hero-particles"></div>
+
+        <!-- Animated Hero Content (Fades in on load with 3D) -->
+        <div class="relative z-10 px-margin-mobile lg:px-margin-desktop max-w-container-max mx-auto w-full">
+            <div class="max-w-2xl hero-3d-container">
+                <!-- Badge with 3D lift -->
+                <span class="hero-fade hero-badge-3d inline-block px-5 py-1.5 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-xs font-bold mb-6 uppercase tracking-wider shadow-md badge-shimmer">
+                    ✦ ESTABLISHED TRADITION ✦
+                </span>
+                
+                <!-- Gradient Animated Headline -->
+                <h1 class="hero-fade font-display-lg text-display-lg-mobile md:text-display-lg mb-6 leading-[1.1] tracking-tight gradient-text-animate">
+                    Wisdom of the Ages, <br class="hidden md:block"/>Purely Formulated.
+                </h1>
+                
+                <!-- Paragraph -->
+                <p class="hero-fade font-body-lg text-lg text-on-surface-variant mb-10 max-w-lg leading-relaxed">
+                    Discover the healing power of Unani medicine. We blend centuries of heritage with modern purity standards to bring you nature's most effective remedies.
+                </p>
+                
+                <!-- 3D Actions -->
+                <div class="hero-fade flex flex-wrap gap-4">
+                    <a class="btn-3d bg-primary text-white px-10 py-4 rounded-full font-label-md text-sm font-semibold hover:bg-secondary transition-all" href="#catalogue">
+                        Shop Collection
+                    </a>
+                    <a class="btn-3d border-2 border-secondary text-secondary hover:bg-secondary hover:text-white px-10 py-4 rounded-full font-label-md text-sm font-semibold transition-all" href="#consult">
+                        Book Consultation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider my-0"></div>
+
+    <!-- Heritage & About Section -->
+    <section class="py-12 md:py-24 bg-surface reveal-on-scroll" id="about">
+        <div class="px-margin-mobile lg:px-margin-desktop max-w-container-max mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <!-- Apothecary Image -->
+                <div class="relative group">
+                    <div class="absolute -inset-4 bg-primary/5 rounded-3xl -rotate-2 group-hover:rotate-0 transition-transform duration-500"></div>
+                    <img class="relative z-10 rounded-2xl w-full h-[500px] object-cover shadow-xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgSqlC65NQYvg7_bMW4ZzgGnlv7wCGDdjCG_VDrBaNBA8mHoG9w1clq3kOiNk4YXzSTohpoyZw_qboA-FOY6TGxun4-U_1Y8vFq1-9vGb9w8JjuW4qUe58gbsXYxvliJ7W-EzrzQDAcpRVF8uOIP4UPZBEG13Yqi02jREXeFrf6j3exoHMJvaYA-47FHxcrpxeftezWSMrnTzf-9cP0XMAfwCWKRCNzIJoRN8BXSI4Shz7YziMSW2PYtICx7hed4kfThiiGZkZs3k" alt="Old-world apothecary jars"/>
+                </div>
+
+                <!-- Story details -->
+                <div>
+                    <span class="text-secondary font-label-md text-xs font-bold uppercase tracking-widest mb-2 block">OUR HERITAGE</span>
+                    <h2 class="font-headline-md text-headline-md text-primary mb-6 leading-tight">From Vaidya Heritage to Rahat Unani</h2>
+                    
+                    <p class="font-body-md text-on-surface-variant mb-6 leading-relaxed">
+                        Rooted in the historical heart of Bhiwandi, Rahat Unani carries forward the legacy formerly known as Vaidya Heritage. For generations, we have served the community with authentic Greco-Arabic medicinal wisdom.
+                    </p>
+                    <p class="font-body-md text-on-surface-variant mb-8 leading-relaxed">
+                        Our transition to Rahat Unani represents a modern commitment to these ancient practices. We ensure every herb, spice, and dry fruit is ethically sourced and scientifically verified, maintaining the purity our ancestors trusted.
+                    </p>
+                    
+                    <!-- Stats Grid -->
+                    <div class="grid grid-cols-3 gap-6 pt-6 border-t border-outline-variant/30">
+                        <div>
+                            <div class="font-headline-sm text-2xl md:text-3xl font-bold text-primary">50+</div>
+                            <div class="text-xs font-semibold text-on-surface-variant mt-1">Years of Legacy</div>
+                        </div>
+                        <div>
+                            <div class="font-headline-sm text-2xl md:text-3xl font-bold text-primary">200+</div>
+                            <div class="text-xs font-semibold text-on-surface-variant mt-1">Pure Formulations</div>
+                        </div>
+                        <div>
+                            <div class="font-headline-sm text-2xl md:text-3xl font-bold text-primary">100k+</div>
+                            <div class="text-xs font-semibold text-on-surface-variant mt-1">Happy Lives</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- Explore Entire Catalogue Section -->
+    <section class="py-12 md:py-24 bg-white border-t border-outline-variant/20 reveal-on-scroll relative overflow-hidden" id="catalogue">
+        <!-- Floating orbs decoration -->
+        <div class="floating-orb gold" style="width:250px;height:250px;top:-50px;right:-80px;animation-delay:2s;"></div>
+        <div class="floating-orb forest" style="width:180px;height:180px;bottom:-40px;left:-60px;animation-delay:5s;"></div>
+        <div class="px-margin-mobile lg:px-margin-desktop max-w-container-max mx-auto">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-secondary font-label-md text-xs font-bold uppercase tracking-widest mb-3 block">OUR E-SHOP</span>
+                <h2 class="font-headline-md text-headline-md text-primary mb-4 leading-tight">Explore Entire Catalogue</h2>
+                <p class="text-on-surface-variant leading-relaxed">
+                    Browse our full collection of premium Unani therapeutics, aromatic spices, and energy-dense dried fruits. Sourced cleanly, prepared with integrity.
+                </p>
+            </div>
+
+            <!-- Catalogue Category Tabs -->
+            <div class="flex flex-wrap justify-center gap-3 mb-10">
+                <button class="filter-tab px-6 py-2.5 rounded-full border border-primary bg-primary text-white font-label-md text-sm font-semibold transition-all shadow-sm" data-category="all">
+                    All Products
+                </button>
+                <button class="filter-tab px-6 py-2.5 rounded-full border border-outline-variant/30 bg-surface text-on-surface-variant hover:border-primary/40 font-label-md text-sm font-semibold transition-all shadow-sm" data-category="medicines">
+                    Therapeutic Medicines
+                </button>
+                <button class="filter-tab px-6 py-2.5 rounded-full border border-outline-variant/30 bg-surface text-on-surface-variant hover:border-primary/40 font-label-md text-sm font-semibold transition-all shadow-sm" data-category="spices">
+                    Gourmet Spices
+                </button>
+                <button class="filter-tab px-6 py-2.5 rounded-full border border-outline-variant/30 bg-surface text-on-surface-variant hover:border-primary/40 font-label-md text-sm font-semibold transition-all shadow-sm" data-category="dry-fruits">
+                    Premium Dry Fruits
+                </button>
+            </div>
+
+            <!-- Products Catalogue Grid (Rendered Dynamically with Hover popup animation) -->
+            <div id="catalogue-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <!-- Script injects cards here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- Spices & Dry Fruits Promo Section -->
+    <section class="py-12 md:py-24 bg-surface-container-low overflow-hidden reveal-on-scroll relative" id="spices-promo">
+        <!-- Floating orbs -->
+        <div class="floating-orb teal" style="width:200px;height:200px;top:10%;left:-60px;animation-delay:1s;"></div>
+        <div class="px-margin-mobile lg:px-margin-desktop max-w-container-max mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
+                <!-- Promo Text & CTAs -->
+                <div>
+                    <span class="text-secondary font-label-md text-xs font-bold uppercase tracking-widest mb-4 block">Gourmet Selection</span>
+                    <h2 class="font-headline-md text-headline-md text-primary mb-6">Premium Spices &amp; Nutritious Dry Fruits</h2>
+                    <p class="text-lg text-on-surface-variant mb-10 leading-relaxed">
+                        Our spices are sourced directly from the finest plantations, ensuring maximum potency and aroma. Our hand-picked dry fruits provide a concentrated burst of nutrition for your daily diet.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12">
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center shrink-0 border border-outline-variant/10">
+                                <span class="material-symbols-outlined text-primary text-2xl">restaurant</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary text-sm">Authentic Grade A</h4>
+                                <p class="text-xs text-on-surface-variant mt-1 leading-relaxed">Zero adulteration, pure aromatic strength and therapeutic values.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center shrink-0 border border-outline-variant/10">
+                                <span class="material-symbols-outlined text-primary text-2xl">nutrition</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary text-sm">Nutrient Rich</h4>
+                                <p class="text-xs text-on-surface-variant mt-1 leading-relaxed">Selected for peak health benefits and fresh flavor profiling.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <a class="bg-primary text-white px-8 py-3.5 rounded-full font-label-md text-sm font-semibold hover:bg-secondary transition-all shadow-md" href="#catalogue" onclick="document.querySelector('[data-category=\'spices\']').click()">
+                            Shop Spices
+                        </a>
+                        <a class="border border-primary text-primary hover:bg-primary hover:text-white px-8 py-3.5 rounded-full font-label-md text-sm font-semibold transition-all" href="#catalogue" onclick="document.querySelector('[data-category=\'dry-fruits\']').click()">
+                            Shop Dry Fruits
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Collage Grid -->
+                <div class="grid grid-cols-2 gap-4 relative">
+                    <div class="space-y-4">
+                        <div class="tilt-card h-64 rounded-3xl overflow-hidden shadow-lg border border-outline-variant/20">
+                            <img class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx0-FaKzP-I38bM9SrKOxaCNhjQprFwQ18juKQozFO5wFZEitP1ykUqQInBSSKe977ObmsOH3wxxPe1SmHIuwaTuw9gw7-deASB_NlUWyGn1ZbYXvhGcUG1YEWTdHn82uA3Mma8pqhHGbCKqVtmXeGEJMeRFDXB809mrYeh_me1jPQ_wYEWIG8w1X5fkuf78aqcSGJUnydQeAwyYoflNBTm8SaGf_f1eWh3q01BkzLjv30HHYzo13oFAiXr-Du046mMDwEBNHFPOk" alt="Whole natural spices"/>
+                        </div>
+                        <div class="tilt-card h-48 rounded-3xl overflow-hidden shadow-lg translate-x-4 border border-outline-variant/20">
+                            <img class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAp_GOb7F-7kieHFNxm6Wxz7N0dUoGOjxuyzrwMN5q6Hc75wZ048G7Q6IFZUXwIJOCVjSWBELi-2y1rkZSSIFFq3PFdRh72YjBZr7ogTfaRtJP1hobzJGwEGWdrscJKN92UZeZaIzH4VzvaFNxS6P-09mD3IxtLOoPk9OQaix5X3mavh5MczZlZbmhq-92z_j09XV7I82tRi3DSpjpXScYmOBSE9W4TCZHqPwAyzwOqDtUvAGivGDiUpWdk3lnxCO8NE77LWwZlc_Y" alt="Premium almonds and cashews"/>
+                        </div>
+                    </div>
+                    <div class="space-y-4 pt-8">
+                        <div class="tilt-card h-48 rounded-3xl overflow-hidden shadow-lg -translate-x-4 border border-outline-variant/20">
+                            <img class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWMlu1WcXOyOrq043anZtEGlkmpk1j3QV33GS3KyOaCJGmmQwSQ4G8Btu-fgTmlfWhP3PLGoHnA2RIEDuQS1YQTlccVcuaix4g3-2e9MAnHVslhXP3qvtHlOqdh6VQx3s_ioMiumDwAlVXCwi8uwT_rsfLvkmYJRj7iyWLEhvLL1XfACBX-IMms9cXumBeMjRErhzYkbGuDlfrhf1-PqXgcYfwWmVYrY7M_UBzACeZt7hq4p-BPmnThZurPj4NytDI8Ush8Gb2GBI" alt="High grade Saffron"/>
+                        </div>
+                        <div class="tilt-card h-64 rounded-3xl overflow-hidden shadow-lg border border-outline-variant/20">
+                            <img class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDo5HZBLBwcS8NnJuZBYpDDq3TYz6pfDZ_5_fKIeuxlQYshL6bJCDICVezJPyGantq2PbzYKlP5P9lh92bJYbmyxiYLFDUN0mJ_Qfbhd031Etq0C3g8BRnZxk7N0evJH49H1WpoH7LkedaFOD-gC7nVR0cjnL0-x6ta32CBHoqpWHt1M4NZFP-rt03U0c0gjDMXLb0dyDldnog9CrQZc0BZVMcCFud2A-QwaaAjExTSbjUjEOwl9dFrYUs7zs1dJgorz0uNW9IFu0U" alt="Dried fruits mix"/>
+                        </div>
+                    </div>
+                    <!-- Morphing blob glow -->
+                    <div class="morph-blob absolute -top-10 -right-10 w-48 h-48 bg-secondary/10 blur-3xl z-0"></div>
+                    <div class="morph-blob absolute -bottom-10 -left-10 w-36 h-36 bg-primary/5 blur-2xl z-0" style="animation-delay:5s;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- Consultation Section -->
+    <section class="py-12 md:py-24 bg-primary text-white reveal-on-scroll relative overflow-hidden" id="consult">
+        <!-- Floating orbs on dark bg -->
+        <div class="floating-orb gold" style="width:280px;height:280px;top:5%;right:10%;animation-delay:4s;"></div>
+        <div class="floating-orb teal" style="width:200px;height:200px;bottom:10%;left:5%;animation-delay:7s;"></div>
+        <!-- Particles -->
+        <div class="particles-container" id="consult-particles"></div>
+        <div class="px-margin-mobile lg:px-margin-desktop max-w-container-max mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+                <!-- Info details -->
+                <div>
+                    <span class="text-secondary-container font-label-md text-xs font-bold uppercase tracking-widest mb-3 block">HOLISTIC HEALING</span>
+                    <h2 class="font-headline-md text-headline-md mb-6">Expert Health Consultation</h2>
+                    <p class="text-on-primary-container text-lg mb-8 leading-relaxed">
+                        Unani medicine focuses on treating the individual, not just the symptom. Speak with our certified Hakims for a personalized treatment plan rooted in the principles of balance and temperament (Mizaj).
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10">
+                            <div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center shrink-0">
+                                <span class="material-symbols-outlined text-primary">check_circle</span>
+                            </div>
+                            <span class="font-label-md text-sm font-semibold">Personalized Temperament Analysis (Mizaj)</span>
+                        </div>
+                        <div class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10">
+                            <div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center shrink-0">
+                                <span class="material-symbols-outlined text-primary">check_circle</span>
+                            </div>
+                            <span class="font-label-md text-sm font-semibold">Traditional Pulse Diagnosis (Nabz)</span>
+                        </div>
+                        <div class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10">
+                            <div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center shrink-0">
+                                <span class="material-symbols-outlined text-primary">check_circle</span>
+                            </div>
+                            <span class="font-label-md text-sm font-semibold">Dietary &amp; Lifestyle Counseling</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Booking Form Card -->
+                <div class="bg-surface rounded-3xl p-8 md:p-10 text-on-surface shadow-2xl border border-outline-variant/10">
+                    <h3 class="font-headline-sm text-2xl text-primary mb-2">Book Your Session</h3>
+                    <p class="text-on-surface-variant text-sm mb-6">Enter your details and a medical representative will reach out.</p>
+                    <form class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="space-y-1">
+                                <label class="text-xs font-bold text-outline uppercase tracking-wider">Full Name</label>
+                                <input class="w-full px-4 py-3 rounded-xl bg-surface-container-low border-none focus:ring-2 focus:ring-primary text-sm" placeholder="Your Name" required type="text"/>
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-xs font-bold text-outline uppercase tracking-wider">Phone Number</label>
+                                <input class="w-full px-4 py-3 rounded-xl bg-surface-container-low border-none focus:ring-2 focus:ring-primary text-sm" placeholder="+91" required type="tel"/>
+                            </div>
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-outline uppercase tracking-wider">Primary Concern</label>
+                            <select class="w-full px-4 py-3 rounded-xl bg-surface-container-low border-none focus:ring-2 focus:ring-primary text-sm">
+                                <option>Digestive Health</option>
+                                <option>Joint &amp; Bone Pain</option>
+                                <option>Skin &amp; Beauty</option>
+                                <option>Stress &amp; Vitality</option>
+                                <option>Weight Management</option>
+                            </select>
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-outline uppercase tracking-wider">Message (Optional)</label>
+                            <textarea class="w-full px-4 py-3 rounded-xl bg-surface-container-low border-none focus:ring-2 focus:ring-primary text-sm" placeholder="Briefly describe your health goals..." rows="3"></textarea>
+                        </div>
+                        <button class="w-full bg-primary text-white py-4 rounded-full font-label-md text-sm font-semibold hover:bg-secondary transition-all hover:shadow-lg mt-4" type="submit">
+                            Confirm Appointment Request
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- Local Presence & Contact Section -->
+    <section class="py-12 md:py-24 bg-background reveal-on-scroll relative" id="contact">
+        <div class="floating-orb forest" style="width:160px;height:160px;top:20%;right:-40px;animation-delay:3s;"></div>
+        <div class="px-margin-mobile lg:px-margin-desktop max-w-container-max mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+                <!-- Map / Location Panel -->
+                <div class="bg-surface-container rounded-3xl p-8 h-[500px] overflow-hidden relative shadow-sm">
+                    <div class="absolute inset-0 z-0">
+                        <img class="w-full h-full object-cover opacity-50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWXwtKnw_oS6m0n0l7WZfjAmvYxRTShbtYYSKDjjHcZblbTQJmPBoF7-2p41FcPCapOGuYQ6f6XD4IyKF1yO4ZJgiymPBqkSPH0xEoszljI3gKCwUc-vn8e-Uymz6A33rjBTcE47g0UqBeTlBf-mfievsVg-xdul87PTUcvQoPjnTv9QH2UuiG6dMDn2jvkKeqBQ19vRSvt8r9d53vhmKEnC29erztyaOxaQahPiDp4qd8BSESOu-UvLk6azdyxI063J9IPNYKdH4" alt="Bhiwandi Map location"/>
+                    </div>
+                    <div class="relative z-10 h-full flex flex-col justify-end">
+                        <div class="card-overlay-glass p-6 rounded-2xl shadow-lg border border-outline-variant/30">
+                            <h4 class="font-bold text-primary mb-2">Visit Our Flagship Store</h4>
+                            <p class="text-sm text-on-surface-variant mb-4">Old Fish Market Area, Near Heritage Square, Bhiwandi, Maharashtra 421302</p>
+                            <a class="text-secondary font-label-md flex items-center gap-2 hover:text-primary transition-colors text-sm font-semibold" href="https://maps.google.com" target="_blank">
+                                Get Directions <span class="material-symbols-outlined text-sm">open_in_new</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Connect Links -->
+                <div class="flex flex-col justify-center">
+                    <span class="text-secondary font-label-md text-xs font-bold uppercase tracking-widest mb-2 block">GET IN TOUCH</span>
+                    <h2 class="font-headline-md text-headline-md text-primary mb-6">Connect With Us</h2>
+                    <p class="text-on-surface-variant mb-8 leading-relaxed">
+                        Whether you have a product query or want to place an order via WhatsApp, we are here to help.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <!-- WhatsApp -->
+                        <a class="contact-card-float flex items-center gap-6 p-6 bg-surface rounded-3xl shadow-sm border border-outline-variant/20 hover:border-primary/40 hover:shadow-md transition-all group" href="https://wa.me/910000000000" target="_blank">
+                            <div class="w-14 h-14 bg-primary/5 rounded-full flex items-center justify-center shrink-0 border border-outline-variant/20">
+                                <span class="material-symbols-outlined text-primary text-3xl">chat</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary">Order on WhatsApp</h4>
+                                <p class="text-sm text-on-surface-variant mt-0.5">Instant support &amp; doorstep delivery</p>
+                            </div>
+                            <span class="material-symbols-outlined ml-auto text-outline group-hover:text-primary transition-colors">arrow_forward</span>
+                        </a>
+
+                        <!-- Email -->
+                        <div class="contact-card-float flex items-center gap-6 p-6 bg-surface rounded-3xl shadow-sm border border-outline-variant/20">
+                            <div class="w-14 h-14 bg-primary/5 rounded-full flex items-center justify-center shrink-0 border border-outline-variant/20">
+                                <span class="material-symbols-outlined text-primary text-3xl">mail</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary">Email Inquiries</h4>
+                                <p class="text-sm text-on-surface-variant mt-0.5">contact@rahatunani.com</p>
+                            </div>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="contact-card-float flex items-center gap-6 p-6 bg-surface rounded-3xl shadow-sm border border-outline-variant/20">
+                            <div class="w-14 h-14 bg-primary/5 rounded-full flex items-center justify-center shrink-0 border border-outline-variant/20">
+                                <span class="material-symbols-outlined text-primary text-3xl">call</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary">Call Support</h4>
+                                <p class="text-sm text-on-surface-variant mt-0.5">+91 (2522) 234-5678</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-gradient-border bg-surface-container w-full py-12 md:py-16">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-margin-mobile lg:px-margin-desktop max-w-container-max mx-auto">
+            <!-- Col 1 -->
+            <div>
+                <div class="font-headline-md text-headline-md font-bold text-primary mb-6">Rahat Unani</div>
+                <p class="text-on-surface-variant text-sm mb-6 leading-relaxed">
+                    Preserving the sanctity of Unani medicine through meticulous formulation and pure sourcing.
+                </p>
+                <div class="flex gap-4">
+                    <span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer text-xl">face_nod</span>
+                    <span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer text-xl">camera</span>
+                    <span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer text-xl">play_circle</span>
+                </div>
+            </div>
+            
+            <!-- Col 2 -->
+            <div class="space-y-4">
+                <h5 class="font-bold text-primary uppercase text-xs tracking-wider">Services</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="#consult">Consultation</a></li>
+                    <li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="#catalogue">Ingredient Sourcing</a></li>
+                    <li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="#catalogue">Bulk Orders</a></li>
+                    <li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="#about">Hakim Network</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3 -->
+            <div class="space-y-4">
+                <h5 class="font-bold text-primary uppercase text-xs tracking-wider">Company</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="#about">Our Story</a></li>
+                    <li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms of Service</a></li>
+                    <li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a></li>
+                    <li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="#contact">Shipping &amp; Returns</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 4 -->
+            <div class="space-y-6">
+                <h5 class="font-bold text-primary uppercase text-xs tracking-wider">Newsletter</h5>
+                <p class="text-xs text-on-surface-variant leading-relaxed">Stay updated on seasonal health tips and new arrivals.</p>
+                <div class="flex flex-col gap-3">
+                    <input class="px-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-primary text-sm" placeholder="Email address" type="email"/>
+                    <button class="bg-primary hover:bg-secondary text-white py-3 rounded-xl font-label-md text-sm font-semibold shadow-sm transition-colors">
+                        Subscribe
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="mt-16 pt-8 border-t border-outline-variant/30 text-center text-on-surface-variant text-xs">
+            © 2026 Rahat Unani. All rights reserved. Formerly Vaidya Heritage.
+        </div>
+    </footer>
+
+
+    <!-- ================= MODALS & DRAWERS ================= -->
+
+    <!-- Shopping Cart Slide-in Drawer -->
+    <div id="cart-overlay" class="cart-overlay"></div>
+    <div id="cart-drawer" class="cart-drawer">
+        <!-- Drawer Header -->
+        <div class="flex justify-between items-center p-6 border-b border-outline-variant/20 bg-surface-container-low">
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-2xl">shopping_cart</span>
+                <h3 class="font-headline-sm text-lg text-primary font-bold">Shopping Cart</h3>
+            </div>
+            <button id="close-cart-btn" class="text-on-surface-variant hover:text-primary transition-colors">
+                <span class="material-symbols-outlined text-2xl">close</span>
+            </button>
+        </div>
+
+        <!-- Drawer Content (Items List) -->
+        <div id="cart-items-list" class="flex-1 overflow-y-auto p-6 custom-scrollbar">
+            <!-- JS inserts items dynamically here -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="cart-empty-state" class="flex-1 flex flex-col items-center justify-center p-6 text-center">
+            <span class="material-symbols-outlined text-6xl text-outline-variant mb-4">shopping_bag</span>
+            <h4 class="font-bold text-primary mb-2">Your Cart is Empty</h4>
+            <p class="text-sm text-on-surface-variant max-w-[260px] mb-6">Explore our catalog and add pure traditional formulations to your order.</p>
+            <button class="bg-primary text-white px-6 py-2.5 rounded-full font-label-md text-sm font-semibold hover:bg-secondary transition-colors" onclick="toggleCart(false)">
+                Start Shopping
+            </button>
+        </div>
+
+        <!-- Checkout Summary (Pinned at bottom) -->
+        <div id="cart-summary-section" class="p-6 border-t border-outline-variant/30 bg-surface-container-low hidden">
+            <div class="space-y-2 mb-6">
+                <div class="flex justify-between text-sm text-on-surface-variant">
+                    <span>Subtotal</span>
+                    <span id="cart-subtotal" class="font-semibold text-primary">₹0.00</span>
+                </div>
+                <div class="flex justify-between text-sm text-on-surface-variant">
+                    <span>Shipping</span>
+                    <span id="cart-shipping" class="font-semibold text-primary">₹0.00</span>
+                </div>
+                <div class="flex justify-between text-base font-bold text-primary pt-2 border-t border-outline-variant/10">
+                    <span>Grand Total</span>
+                    <span id="cart-total">₹0.00</span>
+                </div>
+                <p class="text-[10px] text-on-surface-variant mt-1">Free delivery on orders above ₹500.00</p>
+            </div>
+            <button id="checkout-btn" class="w-full bg-primary hover:bg-secondary text-white py-4 rounded-full font-label-md text-sm font-semibold shadow-md transition-all flex items-center justify-center gap-2">
+                Proceed to Checkout <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </button>
+        </div>
+    </div>
+
+
+    <!-- Checkout & Payment Simulator Modal -->
+    <div id="checkout-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+        <div class="bg-surface rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-hidden shadow-2xl flex flex-col relative animate-fade-in-scale border border-outline-variant/20">
+            <!-- Modal Header -->
+            <div class="flex justify-between items-center p-6 border-b border-outline-variant/20 bg-surface-container-low">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary">credit_card</span>
+                    <h3 class="font-headline-sm text-lg text-primary font-bold">Secure Checkout</h3>
+                </div>
+                <button id="close-checkout-btn" class="text-on-surface-variant hover:text-primary transition-colors">
+                    <span class="material-symbols-outlined text-2xl">close</span>
+                </button>
+            </div>
+
+            <!-- Modal Content (Forms) -->
+            <div class="flex-1 overflow-y-auto p-6 md:p-8 custom-scrollbar">
+                
+                <!-- STAGE 1: Checkout Form -->
+                <div id="checkout-form-container">
+                    <form id="checkout-form" class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+                        
+                        <!-- Left Panel: Delivery Details -->
+                        <div class="lg:col-span-3 space-y-6">
+                            <h4 class="font-headline-sm text-base text-primary font-bold border-b border-outline-variant/20 pb-2">1. Delivery Address</h4>
+                            
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="text-xs font-bold text-outline uppercase tracking-wider block mb-1">Receiver's Full Name</label>
+                                    <input id="checkout-name" type="text" class="w-full px-4 py-3 rounded-xl bg-surface-container-low border-none focus:ring-2 focus:ring-primary text-sm checkout-input-focus" placeholder="e.g. xyz" required />
+                                </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="text-xs font-bold text-outline uppercase tracking-wider block mb-1">Phone Number</label>
+                                        <input id="checkout-phone" type="tel" class="w-full px-4 py-3 rounded-xl bg-surface-container-low border-none focus:ring-2 focus:ring-primary text-sm checkout-input-focus" placeholder="+91" required />
+                                    </div>
+                                    <div>
+                                        <label class="text-xs font-bold text-outline uppercase tracking-wider block mb-1">Email Address</label>
+                                        <input id="checkout-email" type="email" class="w-full px-4 py-3 rounded-xl bg-surface-container-low border-none focus:ring-2 focus:ring-primary text-sm checkout-input-focus" placeholder="xyz@example.com" required />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="text-xs font-bold text-outline uppercase tracking-wider block mb-1">Street Address</label>
+                                    <input id="checkout-address" type="text" class="w-full px-4 py-3 rounded-xl bg-surface-container-low border-none focus:ring-2 focus:ring-primary text-sm checkout-input-focus" placeholder="House/Flat No, Apartment, Landmark" required />
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="text-xs font-bold text-outline uppercase tracking-wider block mb-1">City</label>
+                                        <input id="checkout-city" type="text" class="w-full px-4 py-3 rounded-xl bg-surface-container-low border-none focus:ring-2 focus:ring-primary text-sm checkout-input-focus" placeholder="Bhiwandi" required />
+                                    </div>
+                                    <div>
+                                        <label class="text-xs font-bold text-outline uppercase tracking-wider block mb-1">Postal Code (PIN)</label>
+                                        <input id="checkout-pincode" type="text" class="w-full px-4 py-3 rounded-xl bg-surface-container-low border-none focus:ring-2 focus:ring-primary text-sm checkout-input-focus" placeholder="421302" required />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h4 class="font-headline-sm text-base text-primary font-bold border-b border-outline-variant/20 pb-2 pt-4">2. Select Payment Method</h4>
+                            <div class="grid grid-cols-3 gap-3">
+                                <label class="border border-outline-variant/30 rounded-2xl p-4 flex flex-col items-center justify-center text-center cursor-pointer hover:border-primary hover:bg-primary/5 transition-all">
+                                    <input type="radio" name="payment-method" value="upi" checked class="text-primary focus:ring-primary mb-2" />
+                                    <span class="material-symbols-outlined text-primary mb-1">qr_code_2</span>
+                                    <span class="text-xs font-bold text-primary">UPI QR</span>
+                                </label>
+                                <label class="border border-outline-variant/30 rounded-2xl p-4 flex flex-col items-center justify-center text-center cursor-pointer hover:border-primary hover:bg-primary/5 transition-all">
+                                    <input type="radio" name="payment-method" value="card" class="text-primary focus:ring-primary mb-2" />
+                                    <span class="material-symbols-outlined text-primary mb-1">credit_card</span>
+                                    <span class="text-xs font-bold text-primary">Card</span>
+                                </label>
+                                <label class="border border-outline-variant/30 rounded-2xl p-4 flex flex-col items-center justify-center text-center cursor-pointer hover:border-primary hover:bg-primary/5 transition-all">
+                                    <input type="radio" name="payment-method" value="cod" class="text-primary focus:ring-primary mb-2" />
+                                    <span class="material-symbols-outlined text-primary mb-1">local_shipping</span>
+                                    <span class="text-xs font-bold text-primary">COD</span>
+                                </label>
+                            </div>
+
+                            <!-- UPI Details panel -->
+                            <div id="upi-details" class="p-4 bg-surface-container-low rounded-2xl border border-outline-variant/20 space-y-4">
+                                <div class="flex items-center gap-4">
+                                    <!-- Dynamic simulated QR Code -->
+                                    <div class="bg-surface p-2 rounded-xl border border-outline-variant/30 shrink-0">
+                                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=upi://pay?pa=rahatunani@okaxis%26pn=Rahat%20Unani%26cu=INR" alt="Simulated UPI QR" class="w-20 h-20 invert dark:invert-0"/>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-bold text-primary text-sm">Scan QR Code to Pay</h5>
+                                        <p class="text-xs text-on-surface-variant mt-1 leading-relaxed">
+                                            Scan using GPay, PhonePe, or Paytm. Enter your VPA below to verify.
+                                        </p>
+                                    </div>
+                                </div>
+                                <input type="text" class="w-full px-4 py-3 rounded-xl bg-surface-container border-none focus:ring-2 focus:ring-primary text-sm checkout-input-focus text-on-surface" placeholder="Enter UPI ID (e.g. xyz@okaxis)" />
+                            </div>
+
+                            <!-- Card Details panel -->
+                            <div id="card-details" class="p-4 bg-surface-container-low rounded-2xl border border-outline-variant/20 space-y-3 hidden">
+                                <div>
+                                    <label class="text-[10px] font-bold text-outline uppercase tracking-wider block mb-1">Cardholder Name</label>
+                                    <input type="text" class="w-full px-4 py-2.5 rounded-xl bg-surface-container border-none focus:ring-2 focus:ring-primary text-sm checkout-input-focus text-on-surface" placeholder="xyz" />
+                                </div>
+                                <div>
+                                    <label class="text-[10px] font-bold text-outline uppercase tracking-wider block mb-1">Card Number</label>
+                                    <input type="text" class="w-full px-4 py-2.5 rounded-xl bg-surface-container border-none focus:ring-2 focus:ring-primary text-sm checkout-input-focus text-on-surface" placeholder="xxxx xxxx xxxx xxxx" />
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="text-[10px] font-bold text-outline uppercase tracking-wider block mb-1">Expiry Date</label>
+                                        <input type="text" class="w-full px-4 py-2.5 rounded-xl bg-surface-container border-none focus:ring-2 focus:ring-primary text-sm checkout-input-focus text-on-surface" placeholder="MM/YY" />
+                                    </div>
+                                    <div>
+                                        <label class="text-[10px] font-bold text-outline uppercase tracking-wider block mb-1">CVV</label>
+                                        <input type="password" class="w-full px-4 py-2.5 rounded-xl bg-surface-container border-none focus:ring-2 focus:ring-primary text-sm checkout-input-focus text-on-surface" placeholder="xxx" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- COD Details panel -->
+                            <div id="cod-details" class="p-4 bg-surface-container-low rounded-2xl border border-outline-variant/20 text-xs text-on-surface-variant leading-relaxed hidden">
+                                <span class="material-symbols-outlined text-amber-600 text-sm align-middle mr-1">warning</span> 
+                                Cash on Delivery carries a flat handling surcharge of ₹20.00. Payment must be made directly to the courier executive upon parcel delivery.
+                            </div>
+                        </div>
+
+                        <!-- Right Panel: Order Summary & Placement -->
+                        <div class="lg:col-span-2 bg-surface-container-low rounded-3xl p-6 flex flex-col justify-between border border-outline-variant/20">
+                            <div>
+                                <h4 class="font-headline-sm text-base text-primary font-bold border-b border-outline-variant/20 pb-2 mb-4">Order Summary</h4>
+                                <div id="checkout-items-list" class="space-y-3 max-h-48 overflow-y-auto mb-6 custom-scrollbar pr-2">
+                                    <!-- JS inserts checkout list here -->
+                                </div>
+                                
+                                <div class="space-y-2 pt-4 border-t border-outline-variant/20">
+                                    <div class="flex justify-between text-xs text-on-surface-variant">
+                                        <span>Subtotal</span>
+                                        <span id="checkout-subtotal" class="font-semibold text-primary">₹0.00</span>
+                                    </div>
+                                    <div class="flex justify-between text-xs text-on-surface-variant">
+                                        <span>Shipping Delivery</span>
+                                        <span id="checkout-shipping" class="font-semibold text-primary">₹0.00</span>
+                                    </div>
+                                    <div class="flex justify-between text-sm font-bold text-primary pt-2 border-t border-outline-variant/10">
+                                        <span>Grand Total</span>
+                                        <span id="checkout-total">₹0.00</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn-3d w-full bg-primary hover:bg-secondary text-white py-4 rounded-full font-label-md text-sm font-semibold transition-all mt-8">
+                                Complete Secure Payment
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- STAGE 2: Payment Processing Progress Gate -->
+                <div id="payment-processing-container" class="hidden py-16 flex flex-col items-center justify-center max-w-md mx-auto text-center">
+                    <div class="relative w-24 h-24 mb-8">
+                        <!-- Forest Green Circular Spinner -->
+                        <div class="absolute inset-0 rounded-full border-4 border-primary/20 border-t-primary animate-spin"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-primary text-4xl">lock</span>
+                        </div>
+                    </div>
+                    
+                    <h3 class="font-headline-sm text-xl text-primary font-bold mb-2">Processing Payment</h3>
+                    <p class="text-sm text-on-surface-variant mb-8 leading-relaxed">
+                        Please do not close the window or click back. Your transaction is being secured and verified.
+                    </p>
+
+                    <!-- Realtime Step-by-Step Simulation logs -->
+                    <div class="w-full bg-surface-container-low border border-outline-variant/20 rounded-2xl p-6 text-left space-y-4">
+                        <div id="proc-step-1" class="flex items-center text-primary font-medium text-sm">
+                            <span class="animate-spin rounded-full h-4 w-4 border-2 border-primary border-t-transparent mr-2"></span>
+                            Establishing Secure Connection...
+                        </div>
+                        <div id="proc-step-2" class="flex items-center text-outline text-sm">
+                            <span class="material-symbols-outlined mr-2 text-xl">lock_open</span>
+                            Authorizing Payment...
+                        </div>
+                        <div id="proc-step-3" class="flex items-center text-outline text-sm">
+                            <span class="material-symbols-outlined mr-2 text-xl">credit_card</span>
+                            Waiting for Confirmation...
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STAGE 3: Payment Success screen -->
+                <div id="payment-success-container" class="hidden py-12 flex flex-col items-center justify-center max-w-md mx-auto text-center relative">
+                    <!-- Confetti Canvas overlay -->
+                    <canvas id="success-confetti" class="confetti-canvas"></canvas>
+                    
+                    <div class="w-20 h-20 bg-teal-500 text-white rounded-full flex items-center justify-center shadow-lg mb-6 hover:scale-105 transition-transform duration-300">
+                        <span class="material-symbols-outlined text-4xl">done</span>
+                    </div>
+
+                    <h3 class="font-headline-sm text-2xl text-primary font-bold mb-2">Order Placed Successfully!</h3>
+                    <p class="text-sm text-on-surface-variant mb-6 leading-relaxed">
+                        Thank you for placing your trust in Rahat Unani. Your order details are saved.
+                    </p>
+
+                    <!-- Order Card Summary -->
+                    <div class="w-full bg-surface-container-low border border-outline-variant/20 rounded-2xl p-6 text-left space-y-3 mb-8">
+                        <div class="flex justify-between text-xs text-on-surface-variant">
+                            <span>Order Identifier</span>
+                            <span id="success-order-id" class="font-bold text-primary">RU-847291</span>
+                        </div>
+                        <div class="flex justify-between text-xs text-on-surface-variant">
+                            <span>Estimated Dispatch</span>
+                            <span class="font-bold text-primary">Within 48 Hours</span>
+                        </div>
+                        <div class="flex justify-between text-xs text-on-surface-variant pt-2 border-t border-outline-variant/10">
+                            <span>Total Paid</span>
+                            <span id="success-total" class="font-bold text-primary">₹0.00</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-2 w-full">
+                        <button class="w-full bg-primary hover:bg-secondary text-white py-3.5 rounded-full font-label-md text-sm font-semibold transition-all shadow-md" onclick="closeSuccessScreen(); document.getElementById('my-orders-btn').click(); selectOrderForTracking(document.getElementById('success-order-id').innerText)">
+                            Track Delivery Status
+                        </button>
+                        <button class="w-full border border-primary text-primary hover:bg-primary/5 py-3.5 rounded-full font-label-md text-sm font-semibold transition-all" onclick="closeSuccessScreen()">
+                            Back to Store
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- My Orders & Live Tracking Modal -->
+    <div id="tracking-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+        <div class="bg-surface rounded-3xl w-full max-w-5xl max-h-[90vh] overflow-hidden shadow-2xl flex flex-col relative animate-fade-in-scale border border-outline-variant/20">
+            <!-- Modal Header -->
+            <div class="flex justify-between items-center p-6 border-b border-outline-variant/20 bg-surface-container-low">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary">local_shipping</span>
+                    <h3 class="font-headline-sm text-lg text-primary font-bold">Track Orders</h3>
+                </div>
+                <button id="close-tracking-btn" class="text-on-surface-variant hover:text-primary transition-colors">
+                    <span class="material-symbols-outlined text-2xl">close</span>
+                </button>
+            </div>
+
+            <!-- Modal Content (Grid Layout: Left Sidebar = Orders List, Right Panel = Detailed Tracker) -->
+            <div class="flex-1 flex flex-col md:flex-row overflow-hidden">
+                <!-- Left Sidebar: Orders History -->
+                <div class="w-full md:w-80 border-r border-outline-variant/20 flex flex-col overflow-y-auto p-4 bg-surface-container-low custom-scrollbar">
+                    <h4 class="font-bold text-xs text-outline uppercase tracking-wider mb-4 px-2">Order History</h4>
+                    <div id="orders-list-container" class="flex-1 space-y-1">
+                        <!-- Script injects orders cards here -->
+                    </div>
+                </div>
+
+                <!-- Right Panel: Tracking Details -->
+                <div id="tracking-content-area" class="flex-1 overflow-y-auto p-6 md:p-8 custom-scrollbar">
+                    
+                    <!-- Selected Order Detail Section -->
+                    <div id="tracking-detail-section" class="hidden space-y-8">
+                        
+                        <!-- Header info -->
+                        <div class="flex justify-between items-start flex-wrap gap-4 border-b border-outline-variant/20 pb-4">
+                            <div>
+                                <h3 class="font-headline-sm text-xl text-primary font-bold mb-1">
+                                    Order ID: <span id="track-order-id">RU-000000</span>
+                                </h3>
+                                <p class="text-xs text-on-surface-variant">Placed on: <span id="track-date">--/--/----</span></p>
+                            </div>
+                            <div class="flex items-center bg-green-50 text-green-800 text-xs px-3 py-1 rounded-full font-bold border border-green-100">
+                                <span class="sim-indicator"></span> Live Tracking Active
+                            </div>
+                        </div>
+
+                        <!-- Stepper Visualizer -->
+                        <div class="py-6 border-b border-outline-variant/20">
+                            <div class="flex justify-between items-center relative">
+                                <!-- Step 1 -->
+                                <div id="step-placed" class="stepper-item">
+                                    <div class="stepper-circle">
+                                        <span class="material-symbols-outlined text-lg">receipt</span>
+                                    </div>
+                                    <span class="text-xs font-bold text-primary mt-2">Placed</span>
+                                </div>
+                                <!-- Step 2 -->
+                                <div id="step-formulating" class="stepper-item">
+                                    <div class="stepper-circle">
+                                        <span class="material-symbols-outlined text-lg">biotech</span>
+                                    </div>
+                                    <span class="text-xs font-bold text-primary mt-2">Formulating</span>
+                                </div>
+                                <!-- Step 3 -->
+                                <div id="step-shipped" class="stepper-item">
+                                    <div class="stepper-circle">
+                                        <span class="material-symbols-outlined text-lg">local_shipping</span>
+                                    </div>
+                                    <span class="text-xs font-bold text-primary mt-2">Shipped</span>
+                                </div>
+                                <!-- Step 4 -->
+                                <div id="step-delivered" class="stepper-item">
+                                    <div class="stepper-circle">
+                                        <span class="material-symbols-outlined text-lg">task_alt</span>
+                                    </div>
+                                    <span class="text-xs font-bold text-primary mt-2">Delivered</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Delivery Meta Details -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-surface-container-low p-6 rounded-2xl border border-outline-variant/20">
+                            <div>
+                                <h5 class="font-bold text-primary text-xs uppercase tracking-wider mb-2">Shipping Details</h5>
+                                <p id="track-shipping" class="text-xs text-on-surface-variant leading-relaxed">
+                                    --
+                                </p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-primary text-xs uppercase tracking-wider mb-2">Items Ordered</h5>
+                                <div id="track-items-summary" class="space-y-1">
+                                    <!-- JS injects ordered items list here -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Simulation Controller -->
+                        <div class="p-6 bg-secondary/5 rounded-2xl border border-secondary/20 flex flex-col md:flex-row items-center justify-between gap-4">
+                            <div class="max-w-md">
+                                <h5 class="font-bold text-primary text-sm flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-secondary text-lg">science</span> 
+                                    Order Timeline Simulator
+                                </h5>
+                                <p class="text-xs text-on-surface-variant mt-1 leading-relaxed">
+                                    Normally, orders transition through states over days. Use this testing simulator to instantly advance the status and test UI state transitions.
+                                </p>
+                            </div>
+                            <button id="simulate-status-btn" onclick="runStatusSimulation()" class="whitespace-nowrap bg-primary hover:bg-secondary text-white py-3 px-6 rounded-full text-sm font-semibold transition-all">
+                                Simulate Next Stage
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- No Selected Order State -->
+                    <div id="tracking-empty-section" class="h-full flex flex-col items-center justify-center text-center py-12">
+                        <span class="material-symbols-outlined text-6xl text-outline-variant mb-4">package_2</span>
+                        <h4 class="font-bold text-primary mb-2">Track Your Package</h4>
+                        <p class="text-sm text-on-surface-variant max-w-[280px]">
+                            Select an order from the list on the left to see its delivery progression in real-time.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core App Logic Script -->
+    <script src="app.js"></script>
+</body>
+</html>

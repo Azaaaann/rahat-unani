@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rahat Unani | Wisdom of the Ages, Purely Formulated</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#2e3131",
+                        "tertiary-fixed": "#71f8e4",
+                        "surface": "#f8faf9",
+                        "on-primary-container": "#7ba894",
+                        "on-surface-variant": "#414944",
+                        "inverse-primary": "#a2d1bb",
+                        "surface-tint": "#3b6756",
+                        "primary-fixed": "#beedd7",
+                        "surface-bright": "#f8faf9",
+                        "on-primary-fixed": "#002116",
+                        "on-tertiary-fixed-variant": "#005048",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#a2d1bb",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#eff1f0",
+                        "surface-dim": "#d8dada",
+                        "on-tertiary-container": "#00b2a0",
+                        "on-secondary-fixed": "#241a00",
+                        "background": "#f8faf9",
+                        "surface-variant": "#e1e3e2",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#717974",
+                        "secondary-fixed": "#ffe088",
+                        "secondary-fixed-dim": "#e9c349",
+                        "surface-container-highest": "#e1e3e2",
+                        "on-tertiary-fixed": "#00201c",
+                        "primary-container": "#0f3d2e",
+                        "surface-container": "#eceeed",
+                        "on-surface": "#191c1c",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#003d36",
+                        "outline-variant": "#c0c8c3",
+                        "primary": "#00261a",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#e6e9e8",
+                        "secondary": "#735c00",
+                        "on-secondary-container": "#745c00",
+                        "on-primary-fixed-variant": "#234f3f",
+                        "tertiary": "#002521",
+                        "on-secondary-fixed-variant": "#574500",
+                        "secondary-container": "#fed65b",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#4fdbc8",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "container-max": "1280px",
+                        "margin-desktop": "40px",
+                        "base": "8px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Libre Caslon Text"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "headline-md": ["Libre Caslon Text"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Libre Caslon Text"],
+                        "display-lg": ["Libre Caslon Text"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+        }
+        .product-card-shadow {
+            box-shadow: 0px 4px 20px rgba(15, 61, 46, 0.04);
+        }
+        .product-card-shadow:hover {
+            box-shadow: 0px 8px 30px rgba(15, 61, 46, 0.08);
+            border-color: rgba(15, 61, 46, 0.1);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 glass-nav shadow-sm">
+<div class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="font-headline-sm text-headline-sm font-bold text-primary">Rahat Unani</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-primary font-bold border-b-2 border-secondary font-body-md text-body-md" href="#home">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#medicines">Medicines</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#spices">Spices</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#dry-fruits">Dry Fruits</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#about">About</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#contact">Contact</a>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center bg-surface-container-low px-4 py-2 rounded-full">
+<span class="material-symbols-outlined text-outline mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-40" placeholder="Search remedies..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-primary hover:opacity-80 transition-opacity"><span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span></button>
+<button class="text-primary hover:opacity-80 transition-opacity"><span class="material-symbols-outlined" data-icon="person">person</span></button>
+<a class="hidden md:block bg-primary text-white px-6 py-2 rounded-full font-label-md text-label-md hover:opacity-90 transition-opacity" href="#consult">Consult a Hakim</a>
+</div>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-20" id="home">
+<div class="absolute inset-0 z-0 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A serene, high-end wellness setting featuring a shallow depth of field shot of high-quality medicinal herbs and dried botanicals on a marble surface. The lighting is bright, soft, and sophisticated, emphasizing a clean light-mode aesthetic. A palette of deep forest greens and soft mints creates a calm, clinical yet organic mood that represents traditional Unani medicine in a modern global context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOP3GrBt7GrZYFMmn5Oo27_i4jt_K7-oGweWUk0kh6x7Dx8xo6wiR_n3ZfCi7u8r-N6x-uBhZaRiLGDPQE9PM3IUDP496CjMmfiQVVcVkVIdoC3jK3hSIIQCBrJGOBXfVhahQJ37_lEu3M-NYmfMyVBUZucYkbPlMWT1QNDjAbLq3EntSlfvNPjaJ0Iup_pwGp0BM7Xv5CvBQfuKQMH9auJbnXvTav_j6P8hEG3n7d-DqZENglCxTy3a6Pq_HqKEJVAh4InyBCoEY"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent"></div>
+</div>
+<div class="relative z-10 px-margin-desktop max-w-container-max mx-auto w-full">
+<div class="max-w-2xl">
+<span class="inline-block px-4 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md mb-6">ESTABLISHED TRADITION</span>
+<h1 class="font-display-lg text-display-lg text-primary mb-6 leading-tight">Wisdom of the Ages, Purely Formulated.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-lg">
+                    Discover the healing power of Unani medicine. We blend centuries of heritage with modern purity standards to bring you nature's most effective remedies.
+                </p>
+<div class="flex flex-wrap gap-4">
+<a class="bg-primary text-white px-10 py-4 rounded-full font-label-md text-label-md hover:opacity-90 transition-all shadow-lg" href="#medicines">Shop Collection</a>
+<a class="border-2 border-secondary text-secondary px-10 py-4 rounded-full font-label-md text-label-md hover:bg-secondary hover:text-white transition-all" href="#consult">Book Consultation</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Heritage/About Section -->
+<section class="py-24 bg-surface" id="about">
+<div class="px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="relative group">
+<div class="absolute -inset-4 bg-primary/5 rounded-3xl -rotate-2 group-hover:rotate-0 transition-transform duration-500"></div>
+<img class="relative z-10 rounded-2xl w-full h-[500px] object-cover shadow-xl" data-alt="An atmospheric indoor shot of an old-world apothecary shelf filled with amber glass jars of various sizes. The shelves are made of dark, polished wood, and the lighting is warm and directional, highlighting the golden labels. The aesthetic is modern-corporate heritage, blending the clinical precision of Unani medicine with a luxurious, historical Bhiwandi legacy feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgSqlC65NQYvg7_bMW4ZzgGnlv7wCGDdjCG_VDrBaNBA8mHoG9w1clq3kOiNk4YXzSTohpoyZw_qboA-FOY6TGxun4-U_1Y8vFq1-9vGb9w8JjuW4qUe58gbsXYxvliJ7W-EzrzQDAcpRVF8uOIP4UPZBEG13Yqi02jREXeFrf6j3exoHMJvaYA-47FHxcrpxeftezWSMrnTzf-9cP0XMAfwCWKRCNzIJoRN8BXSI4Shz7YziMSW2PYtICx7hed4kfThiiGZkZs3k"/>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-primary mb-6">Our Heritage: From Vaidya Heritage to Rahat Unani</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">
+                        Rooted in the historical heart of Bhiwandi, Rahat Unani carries forward the legacy formerly known as Vaidya Heritage. For generations, we have served the community with authentic Greco-Arabic medicinal wisdom.
+                    </p>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed">
+                        Our transition to Rahat Unani represents a modern commitment to these ancient practices. We ensure every herb, spice, and dry fruit is ethically sourced and scientifically verified, maintaining the purity our ancestors trusted.
+                    </p>
+<div class="grid grid-cols-3 gap-6 pt-6 border-t border-outline-variant">
+<div>
+<div class="font-headline-sm text-headline-sm text-primary">50+</div>
+<div class="text-label-sm text-on-surface-variant">Years of Legacy</div>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-primary">200+</div>
+<div class="text-label-sm text-on-surface-variant">Pure Formulations</div>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-primary">100k+</div>
+<div class="text-label-sm text-on-surface-variant">Happy Lives</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Medicines Collection (Bento Grid Style) -->
+<section class="py-24 bg-white" id="medicines">
+<div class="px-margin-desktop max-w-container-max mx-auto">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary mb-2">Therapeutic Medicines</h2>
+<p class="text-on-surface-variant">Clinically refined Unani remedies for holistic wellbeing.</p>
+</div>
+<button class="text-secondary font-label-md flex items-center gap-2 group">
+                    View Catalog <span class="material-symbols-outlined transition-transform group-hover:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<!-- Large Featured Card -->
+<div class="md:col-span-2 md:row-span-2 bg-surface-container-low rounded-3xl p-8 relative overflow-hidden flex flex-col justify-between group">
+<div>
+<span class="bg-primary text-white px-3 py-1 rounded-full text-xs font-bold mb-4 inline-block">BEST SELLER</span>
+<h3 class="font-headline-sm text-headline-sm text-primary mt-2">Khamira Gaozaban Ambari</h3>
+<p class="text-on-surface-variant mt-4 max-w-xs">A precious tonic for the heart and brain, enriched with silver leaf and pure herbs.</p>
+</div>
+<div class="relative h-64 mt-8">
+<img class="absolute bottom-0 right-0 w-4/5 object-contain transition-transform duration-500 group-hover:scale-105" data-alt="A professional product photograph of a premium Unani medicine jar on a clean, light mint green background. The jar is made of frosted glass with a gold cap, looking clinical and luxury-tier. The lighting is soft and even, highlighting the fine texture of the medicinal paste inside. The aesthetic is modern corporate wellness, emphasizing purity and high-end pharmacological standards." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAKNw5qxzXto3ImK-nHMlC9gVziW0UEkGf_InPSwvy0LKFHE_nSxYJkx4g1ZibCdYHFdx-6FEsso21XXtyGTXVOQL2j0MJ_-3WNungdL4VQhzf5eZal1Cm85e08K1iD1wi0cy9AZH9g9QmVjIr2iOzN-y5YYz1GgMik0dkrpvNNm2nXfHz1SDGbh46VQlIWdH-R4uWTwsfuoxd2rf5ADmhbiCKnewuUf5zssJ21pbD_lFKEXGGuq2OUzwF8EUZeC4dKZTOg4eze7M"/>
+</div>
+<div class="mt-4 flex justify-between items-center">
+<span class="font-headline-sm text-headline-sm text-primary">₹850.00</span>
+<button class="bg-primary text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform"><span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span></button>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="bg-white border border-outline-variant/30 rounded-3xl p-6 product-card-shadow transition-all group">
+<div class="bg-surface-container rounded-2xl h-48 mb-6 overflow-hidden flex items-center justify-center">
+<img class="w-3/4 h-3/4 object-contain transition-transform duration-300 group-hover:scale-110" data-alt="A minimalist studio shot of a white bottle containing herbal capsules, placed against a soft mint background. The packaging is clean with elegant Forest Green typography. The scene is bright and airy, reflecting a premium pharmacy aesthetic. The lighting is high-key with soft ambient shadows, creating a sense of professional healthcare and modern natural supplements." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrMM3XOzdmVS8G22RjtFlPg9PnvMuob4Xtdjtqjh3NmPifW_hCRwrwEeij4zz9zGvoQSGEcqSOt04UJXZDLnjEFaUW6-odL-eRDY2zlt_ANaS9KyB9R4ItTdhQtRSn3bnfv4xSfTCilMdR2j_5M75u0PVmDjTs9zbyUVFpPXkdhIGe5HZO-OhFnUzuUodlHqSo3OYXR7sIQ-DPyekcShe6935qzgzODHtIAVNSqJ4kcoVtG7OKSlGYhnFK3CdOHpdW5eITtRRfKzg"/>
+</div>
+<h4 class="font-label-md text-label-md text-primary mb-1">Majun Falasfa</h4>
+<p class="text-sm text-on-surface-variant mb-4">Vitality &amp; Nerve Strength</p>
+<div class="flex justify-between items-center">
+<span class="font-bold text-primary">₹320.00</span>
+<button class="text-teal-600 font-label-md flex items-center" onclick="alert('Added to cart')">Add +</button>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="bg-white border border-outline-variant/30 rounded-3xl p-6 product-card-shadow transition-all group">
+<div class="bg-surface-container rounded-2xl h-48 mb-6 overflow-hidden flex items-center justify-center">
+<img class="w-3/4 h-3/4 object-contain transition-transform duration-300 group-hover:scale-110" data-alt="A sophisticated shot of a small medicinal oil bottle with a glass dropper, positioned on a smooth white surface with a slight reflection. The background is a soft, blurred forest green. The focus is sharp on the liquid's clarity and the high-quality glass packaging. This image exudes a medical-grade herbal aesthetic, balanced with premium skincare-like presentation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAW0Z21H-1-Zh7JL8txQMnsd-VljKXaBv2yA_AJaE__1Hq9ue4IpIJdxMGthXMeEeNk3l5zGIi0DfrToqrwCeld7-Tq7Pa3AErCIFtlx96m1Y0C4p49Ti5BR3DZLV5l3TooEDYe3QZhJwxyrzR9KBQvMd-Ifw86v5cg7-7lw3uA5CacBNnIBXSRnO5canJi5t1JC4iTMUWbMhvf2FeGbkBvI7sNlALxJOpAM8Homjw-IBi3FPslE3emYGd8o9Hn1RQ4KtexDxwp9ck"/>
+</div>
+<h4 class="font-label-md text-label-md text-primary mb-1">Rogan Sukoon</h4>
+<p class="text-sm text-on-surface-variant mb-4">Muscle &amp; Joint Relief</p>
+<div class="flex justify-between items-center">
+<span class="font-bold text-primary">₹180.00</span>
+<button class="text-teal-600 font-label-md flex items-center">Add +</button>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="bg-white border border-outline-variant/30 rounded-3xl p-6 product-card-shadow transition-all group">
+<div class="bg-surface-container rounded-2xl h-48 mb-6 overflow-hidden flex items-center justify-center">
+<img class="w-3/4 h-3/4 object-contain transition-transform duration-300 group-hover:scale-110" data-alt="A top-down shot of a premium health syrup in an elegant glass bottle, surrounded by fresh herbs like mint and ginger. The lighting is crisp and natural, highlighting the golden-brown color of the syrup. The scene is clean and modern, evoking a high-end apothecary or boutique health store vibe with a focus on organic ingredients and scientific preparation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxqghf5qjW3jPvkiik4ViGaXKpctbeZM6nVwbNWQclomLSiPQevAH_MPL-uU9vjXng2nqv757n7P1XR5BohcNiYxCtV0IcSYn6-F5yQjZwMqWEw1fs7wIdp9pyKeg2T3jU9dUwf4kNV69r-IvyzMbbSgrcjTYbuuWiK-ltLShGhbYmrTUoUolKlrVEyB_v4eZrM87pnAs3OyJrYcqTOHE_JptAhKPuexvrI9k_zyYiVMds_rDT2aYmrDCRg5SVrf_5fRnA8o6Efa4"/>
+</div>
+<h4 class="font-label-md text-label-md text-primary mb-1">Sharbat Bazoori</h4>
+<p class="text-sm text-on-surface-variant mb-4">Liver &amp; Kidney Health</p>
+<div class="flex justify-between items-center">
+<span class="font-bold text-primary">₹150.00</span>
+<button class="text-teal-600 font-label-md flex items-center">Add +</button>
+</div>
+</div>
+<!-- Product Card 5 -->
+<div class="bg-white border border-outline-variant/30 rounded-3xl p-6 product-card-shadow transition-all group">
+<div class="bg-surface-container rounded-2xl h-48 mb-6 overflow-hidden flex items-center justify-center">
+<img class="w-3/4 h-3/4 object-contain transition-transform duration-300 group-hover:scale-110" data-alt="A macro shot of premium herbal tablets arranged in a geometric pattern on a white surface. The pills are earthy green and brown, indicating natural origins. The lighting is soft and professional, highlighting the texture and precision of the tablet compression. The overall aesthetic is pharmaceutical yet grounded in natural Unani traditions, presented with corporate cleanliness." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4cRm_ug3g4_p-EsYIYEO7P6URgJUW8JfEfk1BpwwgvOscs8xHr5N7M6c04f-j6iFYzlGcz8ElGx6tbxjrP74SOYuEzjYHTcq_Fo4OXcP1GZugEwroJpTGYHAASSpKR-L67p5ED-ZpsilCQd4WSl0tE4HNVkDsMbuYWi9TzlHMoI4lVhJx_zC8MOYK47WjXHyVq9HEX-jDYXVl9DBLXwwaFRRm6L3Z6_flpZKCWG_Wykgx9sPtRR1E_9BC5f8F4-YkEuNjt38yHd8"/>
+</div>
+<h4 class="font-label-md text-label-md text-primary mb-1">Habbe Kabid Naushadri</h4>
+<p class="text-sm text-on-surface-variant mb-4">Digestive Comfort</p>
+<div class="flex justify-between items-center">
+<span class="font-bold text-primary">₹95.00</span>
+<button class="text-teal-600 font-label-md flex items-center">Add +</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Spices & Dry Fruits Collection -->
+<section class="py-24 bg-surface-container-low overflow-hidden" id="spices">
+<div class="px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div class="order-2 lg:order-1">
+<span class="text-secondary font-label-md tracking-widest uppercase mb-4 block">Gourmet Selection</span>
+<h2 class="font-headline-md text-headline-md text-primary mb-6">Premium Spices &amp; Nutritious Dry Fruits</h2>
+<p class="text-body-lg text-on-surface-variant mb-10">
+                        Our spices are sourced directly from the finest plantations, ensuring maximum potency and aroma. Our hand-picked dry fruits provide a concentrated burst of nutrition for your daily diet.
+                    </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+<div class="flex gap-4">
+<div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary" data-icon="restaurant">restaurant</span>
+</div>
+<div>
+<h4 class="font-bold text-primary">Authentic Grade A</h4>
+<p class="text-sm text-on-surface-variant">Zero adulteration, pure aromatic strength.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary" data-icon="nutrition">nutrition</span>
+</div>
+<div>
+<h4 class="font-bold text-primary">Nutrient Rich</h4>
+<p class="text-sm text-on-surface-variant">Selected for peak health benefits.</p>
+</div>
+</div>
+</div>
+<div class="mt-12 flex gap-4">
+<button class="bg-primary text-white px-8 py-3 rounded-full font-label-md hover:opacity-90">Shop Spices</button>
+<button class="border border-primary text-primary px-8 py-3 rounded-full font-label-md hover:bg-primary hover:text-white transition-all" id="dry-fruits">Shop Dry Fruits</button>
+</div>
+</div>
+<div class="order-1 lg:order-2 grid grid-cols-2 gap-4 relative">
+<div class="space-y-4">
+<div class="h-64 rounded-3xl overflow-hidden shadow-lg">
+<img class="w-full h-full object-cover" data-alt="A lush, close-up shot of vibrant, whole spices like cardamom pods, star anise, and cinnamon sticks in handmade ceramic bowls. The colors are rich and warm, set against a dark, textured wooden table. The lighting is dramatic and editorial, highlighting the intricate textures of the spices. This high-end food photography evokes a sense of gourmet quality and pure botanical origin." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx0-FaKzP-I38bM9SrKOxaCNhjQprFwQ18juKQozFO5wFZEitP1ykUqQInBSSKe977ObmsOH3wxxPe1SmHIuwaTuw9gw7-deASB_NlUWyGn1ZbYXvhGcUG1YEWTdHn82uA3Mma8pqhHGbCKqVtmXeGEJMeRFDXB809mrYeh_me1jPQ_wYEWIG8w1X5fkuf78aqcSGJUnydQeAwyYoflNBTm8SaGf_f1eWh3q01BkzLjv30HHYzo13oFAiXr-Du046mMDwEBNHFPOk"/>
+</div>
+<div class="h-48 rounded-3xl overflow-hidden shadow-lg translate-x-4">
+<img class="w-full h-full object-cover" data-alt="A premium selection of California almonds and jumbo cashews scattered artistically on a matte black plate. The lighting is soft and top-down, emphasizing the creamy texture of the nuts and their healthy, natural oils. The presentation is sophisticated and minimal, adhering to a high-end corporate wellness aesthetic that highlights nutrient-dense luxury snacks." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAp_GOb7F-7kieHFNxm6Wxz7N0dUoGOjxuyzrwMN5q6Hc75wZ048G7Q6IFZUXwIJOCVjSWBELi-2y1rkZSSIFFq3PFdRh72YjBZr7ogTfaRtJP1hobzJGwEGWdrscJKN92UZeZaIzH4VzvaFNxS6P-09mD3IxtLOoPk9OQaix5X3mavh5MczZlZbmhq-92z_j09XV7I82tRi3DSpjpXScYmOBSE9W4TCZHqPwAyzwOqDtUvAGivGDiUpWdk3lnxCO8NE77LWwZlc_Y"/>
+</div>
+</div>
+<div class="space-y-4 pt-8">
+<div class="h-48 rounded-3xl overflow-hidden shadow-lg -translate-x-4">
+<img class="w-full h-full object-cover" data-alt="Saffron strands in a small, ornate glass jar, glowing with a deep crimson and orange hue under bright, focused lighting. The jar sits on a bed of raw silk, conveying extreme luxury and medicinal value. The atmosphere is prestigious and rare, showcasing saffron as 'red gold' in a modern, professional health context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWMlu1WcXOyOrq043anZtEGlkmpk1j3QV33GS3KyOaCJGmmQwSQ4G8Btu-fgTmlfWhP3PLGoHnA2RIEDuQS1YQTlccVcuaix4g3-2e9MAnHVslhXP3qvtHlOqdh6VQx3s_ioMiumDwAlVXCwi8uwT_rsfLvkmYJRj7iyWLEhvLL1XfACBX-IMms9cXumBeMjRErhzYkbGuDlfrhf1-PqXgcYfwWmVYrY7M_UBzACeZt7hq4p-BPmnThZurPj4NytDI8Ush8Gb2GBI"/>
+</div>
+<div class="h-64 rounded-3xl overflow-hidden shadow-lg">
+<img class="w-full h-full object-cover" data-alt="A top-down artistic composition of various dried fruits like figs, dates, and apricots. The arrangement is balanced and modern, with a clean white background that emphasizes the deep, saturated colors of the fruit. The lighting is bright and even, creating a crisp, appetizing look that suggests purity, health, and premium sourcing for the Rahat Unani brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDo5HZBLBwcS8NnJuZBYpDDq3TYz6pfDZ_5_fKIeuxlQYshL6bJCDICVezJPyGantq2PbzYKlP5P9lh92bJYbmyxiYLFDUN0mJ_Qfbhd031Etq0C3g8BRnZxk7N0evJH49H1WpoH7LkedaFOD-gC7nVR0cjnL0-x6ta32CBHoqpWHt1M4NZFP-rt03U0c0gjDMXLb0dyDldnog9CrQZc0BZVMcCFud2A-QwaaAjExTSbjUjEOwl9dFrYUs7zs1dJgorz0uNW9IFu0U"/>
+</div>
+</div>
+<!-- Abstract geometric element -->
+<div class="absolute -top-10 -right-10 w-40 h-40 bg-secondary/10 rounded-full blur-3xl z-0"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Consultation Section -->
+<section class="py-24 bg-primary text-white" id="consult">
+<div class="px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+<div>
+<h2 class="font-headline-md text-headline-md mb-6">Expert Health Consultation</h2>
+<p class="text-on-primary-container text-lg mb-8 leading-relaxed">
+                        Unani medicine focuses on treating the individual, not just the symptom. Speak with our certified Hakims for a personalized treatment plan rooted in the principles of balance and temperament (Mizaj).
+                    </p>
+<div class="space-y-6">
+<div class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
+</div>
+<span class="font-label-md">Personalized Temperament Analysis</span>
+</div>
+<div class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
+</div>
+<span class="font-label-md">Traditional Pulse Diagnosis (Nabz)</span>
+</div>
+<div class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
+</div>
+<span class="font-label-md">Dietary &amp; Lifestyle Counseling</span>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-3xl p-10 text-on-surface shadow-2xl">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-6">Book Your Session</h3>
+<form class="space-y-4">
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-1">
+<label class="text-sm font-bold text-outline">Full Name</label>
+<input class="w-full px-4 py-3 rounded-xl bg-surface-container-low border-none focus:ring-2 focus:ring-primary" placeholder="Your Name" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="text-sm font-bold text-outline">Phone Number</label>
+<input class="w-full px-4 py-3 rounded-xl bg-surface-container-low border-none focus:ring-2 focus:ring-primary" placeholder="+91" type="tel"/>
+</div>
+</div>
+<div class="space-y-1">
+<label class="text-sm font-bold text-outline">Primary Concern</label>
+<select class="w-full px-4 py-3 rounded-xl bg-surface-container-low border-none focus:ring-2 focus:ring-primary">
+<option>Digestive Health</option>
+<option>Joint &amp; Bone Pain</option>
+<option>Skin &amp; Beauty</option>
+<option>Stress &amp; Vitality</option>
+<option>Weight Management</option>
+</select>
+</div>
+<div class="space-y-1">
+<label class="text-sm font-bold text-outline">Message (Optional)</label>
+<textarea class="w-full px-4 py-3 rounded-xl bg-surface-container-low border-none focus:ring-2 focus:ring-primary" placeholder="Briefly describe your health goals..." rows="3"></textarea>
+</div>
+<button class="w-full bg-primary text-white py-4 rounded-full font-label-md text-label-md hover:bg-on-primary-fixed-variant transition-colors mt-4" type="submit">Confirm Appointment</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- Local Presence & Contact -->
+<section class="py-24 bg-background" id="contact">
+<div class="px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="bg-surface-container rounded-3xl p-8 h-[500px] overflow-hidden relative shadow-sm">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-50" data-alt="A stylized, high-contrast map view showing the urban layout of Bhiwandi, India, with a prominent custom pin highlighting Rahat Unani's store location. The map uses a clean, light-mode palette of soft greys and forest greens. The visual style is modern corporate, intended for a website contact page, focusing on geographic accessibility and professional store presence." data-location="Bhiwandi" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWXwtKnw_oS6m0n0l7WZfjAmvYxRTShbtYYSKDjjHcZblbTQJmPBoF7-2p41FcPCapOGuYQ6f6XD4IyKF1yO4ZJgiymPBqkSPH0xEoszljI3gKCwUc-vn8e-Uymz6A33rjBTcE47g0UqBeTlBf-mfievsVg-xdul87PTUcvQoPjnTv9QH2UuiG6dMDn2jvkKeqBQ19vRSvt8r9d53vhmKEnC29erztyaOxaQahPiDp4qd8BSESOu-UvLk6azdyxI063J9IPNYKdH4"/>
+</div>
+<div class="relative z-10 h-full flex flex-col justify-end">
+<div class="bg-white/90 backdrop-blur-md p-6 rounded-2xl shadow-lg border border-outline-variant">
+<h4 class="font-bold text-primary mb-2">Visit Our Flagship Store</h4>
+<p class="text-sm text-on-surface-variant mb-4">Old Fish Market Area, Near Heritage Square, Bhiwandi, Maharashtra 421302</p>
+<a class="text-secondary font-label-md flex items-center gap-2" href="#">Get Directions <span class="material-symbols-outlined text-sm" data-icon="open_in_new">open_in_new</span></a>
+</div>
+</div>
+</div>
+<div class="flex flex-col justify-center">
+<h2 class="font-headline-md text-headline-md text-primary mb-6">Connect With Us</h2>
+<p class="text-on-surface-variant mb-8">Whether you have a product query or want to place an order via WhatsApp, we are here to help.</p>
+<div class="space-y-6">
+<a class="flex items-center gap-6 p-6 bg-white rounded-3xl product-card-shadow border border-outline-variant/20 hover:border-primary/20 transition-all group" href="https://wa.me/910000000000">
+<div class="w-14 h-14 bg-green-50 rounded-full flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-green-600 text-3xl" data-icon="chat">chat</span>
+</div>
+<div>
+<h4 class="font-bold text-primary">Order on WhatsApp</h4>
+<p class="text-sm text-on-surface-variant">Instant support &amp; doorstep delivery</p>
+</div>
+<span class="material-symbols-outlined ml-auto text-outline group-hover:text-primary" data-icon="arrow_forward">arrow_forward</span>
+</a>
+<div class="flex items-center gap-6 p-6 bg-white rounded-3xl product-card-shadow border border-outline-variant/20">
+<div class="w-14 h-14 bg-blue-50 rounded-full flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-blue-600 text-3xl" data-icon="mail">mail</span>
+</div>
+<div>
+<h4 class="font-bold text-primary">Email Inquiries</h4>
+<p class="text-sm text-on-surface-variant">contact@rahatunani.com</p>
+</div>
+</div>
+<div class="flex items-center gap-6 p-6 bg-white rounded-3xl product-card-shadow border border-outline-variant/20">
+<div class="w-14 h-14 bg-amber-50 rounded-full flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-amber-600 text-3xl" data-icon="call">call</span>
+</div>
+<div>
+<h4 class="font-bold text-primary">Call Support</h4>
+<p class="text-sm text-on-surface-variant">+91 (2522) 234-5678</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-highest w-full py-16 border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-1">
+<div class="font-headline-md text-headline-md font-bold text-primary mb-6">Rahat Unani</div>
+<p class="text-on-surface-variant text-body-md mb-6">
+                    Preserving the sanctity of Unani medicine through meticulous formulation and pure sourcing.
+                </p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer" data-icon="facebook">face_nod</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer" data-icon="camera">camera</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer" data-icon="play_circle">play_circle</span>
+</div>
+</div>
+<div class="space-y-4">
+<h5 class="font-bold text-primary uppercase text-sm tracking-wider">Services</h5>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="#consult">Consultation</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Ingredient Sourcing</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Bulk Orders</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Hakim Network</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h5 class="font-bold text-primary uppercase text-sm tracking-wider">Company</h5>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="#about">Our Story</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Shipping &amp; Returns</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h5 class="font-bold text-primary uppercase text-sm tracking-wider">Newsletter</h5>
+<p class="text-sm text-on-surface-variant">Stay updated on seasonal health tips and new arrivals.</p>
+<div class="flex flex-col gap-3">
+<input class="px-4 py-3 rounded-xl bg-white border-none focus:ring-2 focus:ring-primary text-sm" placeholder="Email address" type="email"/>
+<button class="bg-primary text-white py-3 rounded-xl font-label-md hover:opacity-90">Subscribe</button>
+</div>
+</div>
+</div>
+<div class="mt-16 pt-8 border-t border-outline-variant/30 text-center text-on-surface-variant text-sm">
+            © 2024 Rahat Unani. All rights reserved. Formerly Vaidya Heritage.
+        </div>
+</footer>
+<!-- Scripts for micro-interactions -->
+<script>
+        // Simple scroll observer for nav highlight
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-primary', 'font-bold', 'border-b-2', 'border-secondary');
+                link.classList.add('text-on-surface-variant');
+                if (link.getAttribute('href').includes(current) && current !== "") {
+                    link.classList.add('text-primary', 'font-bold', 'border-b-2', 'border-secondary');
+                    link.classList.remove('text-on-surface-variant');
+                }
+            });
+        });
+
+        // Add to cart animation
+        document.querySelectorAll('button').forEach(btn => {
+            if (btn.innerText.includes('Add')) {
+                btn.addEventListener('click', function(e) {
+                    const originalText = this.innerHTML;
+                    this.innerHTML = '<span class="material-symbols-outlined text-sm">done</span> Added';
+                    this.classList.add('text-green-600');
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                        this.classList.remove('text-green-600');
+                    }, 2000);
+                });
+            }
+        });
+    </script>
+</body></html>
